@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      #POSTGRES_DB: mydb
+      #POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mypass
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5435:5432"
+    networks:
+      - appnet
+
+  nextjs:
+    build: ./proyecto3
+    #environment:
+     # DATABASE_URL: postgres://postgres:@db:5432/appdb
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./proyecto3:/app
+      - /app/node_modules
+    depends_on:
+      - db
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge
