@@ -6,7 +6,7 @@ services:
       #POSTGRES_USER: postgres
       POSTGRES_PASSWORD: mypass
     volumes:
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db:/docker-entrypoint-initdb.d/
     ports:
       - "5435:5432"
     networks:
@@ -14,8 +14,12 @@ services:
 
   nextjs:
     build: ./proyecto3
-    #environment:
-     # DATABASE_URL: postgres://postgres:@db:5432/appdb
+    environment:
+      DATABASE_URL: postgres://postgres:@db:5432/appdb
+      PGUSER: postgres
+      PGPASSWORD: mypass
+      PGHOST: db
+      PGPORT: 5432
     ports:
       - "3000:3000"
     volumes:
