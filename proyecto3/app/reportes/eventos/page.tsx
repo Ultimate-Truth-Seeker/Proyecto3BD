@@ -6,12 +6,12 @@ import { exportToPDF, exportToExcel } from '@/lib/exportUtils';
 
 export default function ReporteEventos() {
   const [filtros, setFiltros] = useState({
-    minAsistentes: 10,
-    minRecursos: 2,
-    categoriaId: "",
-    sedeId: "",
+    minAsistentes: 1,
+    minRecursos: 1,
+    categoriaId: 1,
+    sedeId: 30,
     desde: '2024-01-01',
-    hasta: '2024-12-31',
+    hasta: '2030-12-31',
   });
 
   const [categorias, setCategorias] = useState([]);

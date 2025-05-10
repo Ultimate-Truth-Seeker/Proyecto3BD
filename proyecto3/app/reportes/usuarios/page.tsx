@@ -7,9 +7,9 @@ import { exportToPDF, exportToExcel } from '@/lib/exportUtils';
 export default function ReporteUsuarios() {
   const [filtros, setFiltros] = useState({
     desde: '2024-01-01',
-    hasta: '2024-12-31',
-    interes: '',
-    minEventos: 2,
+    hasta: '2026-12-31',
+    interes: 'fotografía',
+    minEventos: 1,
     edadMin: 18,
     edadMax: 50,
     genero: 'Femenino',
@@ -67,14 +67,7 @@ export default function ReporteUsuarios() {
         </div>
         <div>
           <label>Interés</label>
-          <select name="interes" value={filtros.interes} onChange={handleChange} className="border p-2 w-full">
-            <option value="">Seleccione...</option>
-              {intereses.map(c => (
-                <option key={c.intereses} value={c.intereses}>
-                  {c.intereses}
-                </option>
-              ))}
-          </select>
+          <input type="text" name="interes" placeholder="Interés" value={filtros.interes} onChange={handleChange} className="border p-2 w-full" />
         </div>
         <div>
           <label>Mín. Eventos</label>

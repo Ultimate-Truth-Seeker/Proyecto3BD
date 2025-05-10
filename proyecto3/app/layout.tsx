@@ -30,6 +30,9 @@ export default function RootLayout({
       >
         <div className="">
           <nav className="bg-white border-b shadow px-6 py-4 flex gap-6">
+            <Link href="/" className="text-blue-600 hover:underline">
+              Inicio
+            </Link>
             <Link href="/reportes/eventos" className="text-blue-600 hover:underline">
               Eventos
             </Link>

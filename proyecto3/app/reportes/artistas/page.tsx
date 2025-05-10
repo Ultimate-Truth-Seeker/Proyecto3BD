@@ -6,12 +6,12 @@ import { exportToPDF, exportToExcel } from '@/lib/exportUtils';
 
 export default function ReporteArtistas() {
   const [filtros, setFiltros] = useState({
-    tipoArte: '',
-    tipoActividad: 'Conferencia',
+    tipoArte: 'Música',
+    tipoActividad: 'Otro',
     desde: '2024-01-01',
     hasta: '2024-12-31',
     estado: 'Confirmado',
-    minActividades: 2,
+    minActividades: 1,
   });
 
   const [tipos, setTipos] = useState([]);
